@@ -1,0 +1,1 @@
+This mock server was created from the content available at this project: https://flagicons.lipis.dev/

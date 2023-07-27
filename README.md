@@ -1,31 +1,75 @@
-# countri-finder
-This is a Finder of countries 
+# B2B frontend take home assignment
 
+This is a take home assignment to show your frontend skills, the api provided simulates real-world conditions, please code accordingly.
 
-##STACK
-- React.js
--etc
+## Deliverable
 
+We want you to create a country listing page with a search box that will filter the list.
+- Search input box and button to trigger search
+- List of countries based on the search input
+  - Each country should show it's name, capital and their flag
+  - Pagination of results
+- Page contents should be in a horizontally centered container
 
-Figma designs:
+The styling is up to you, please use your judgement.
+Please use your own css classes, but you are allowed to use a minimal prebuilt sheet like [normalize.css](https://necolas.github.io/normalize.css/).
 
-https://www.figma.com/file/PIZDK8SEwAPSCtstFVDCDL/BeCommerce?type=design&node-id=0%3A1&mode=design&t=qr156kzLMG7y1jJE-1
+## Guidelines
 
-Mobile:
+**Please spend max 4 hours in this assesment**
 
+Prerequisites:
+  - [NodeJS](https://nodejs.org/)
 
-![Captura de pantalla 2023-07-26 a la(s) 20 35 45](https://github.com/KARENLABO/countri-finder/assets/56927449/0f3a97ba-d003-481a-b556-78b74010f955)
+This template provided has everything you need to get started.
+- `npm install` should install all dependencies
+- `npm start` should start your local environment
 
-![Captura de pantalla 2023-07-26 a la(s) 20 36 01](https://github.com/KARENLABO/countri-finder/assets/56927449/9c4ba56f-c351-47d6-89c4-982cc4db2aba)
+Your react code starting point is `src/App.jsx`
 
-![Captura de pantalla 2023-07-26 a la(s) 20 36 19](https://github.com/KARENLABO/countri-finder/assets/56927449/a3760f93-cfc8-4aa2-9018-d4d3c8ca940a)
+### `/countries` endpoint
+The API endpoint for querying countries is available at `http://localhost:5173//countries`.
+It supports the following query search parameters:
+  - `query`: optional, default value: `""`, to filter the countries
+  - `page`: optional, default value: `1`, this helps to select the desired page
+  - `page_size`: optional, default value: `10`, set the max amount of countries
+#### Example
+```
+GET /countries?query=us&page_size=2 HTTP/1.1
+Host: localhost:5173
+```
+Response
+```json
+{
+    "page": 1,
+    "page_size": "2",
+    "results": [
+        {
+            "capital": "Canberra",
+            "code": "au",
+            "continent": "Oceania",
+            "flag_1x1": "flags/1x1/au.svg",
+            "flag_4x3": "flags/4x3/au.svg",
+            "iso": true,
+            "name": "Australia"
+        },
+        {
+            "capital": "Vienna",
+            "code": "at",
+            "continent": "Europe",
+            "flag_1x1": "flags/1x1/at.svg",
+            "flag_4x3": "flags/4x3/at.svg",
+            "iso": true,
+            "name": "Austria"
+        }
+    ],
+    "total": 8
+}
+```
 
+## Evaluation criteria
 
-Desktop:
-
-![Captura de pantalla 2023-07-26 a la(s) 20 37 26](https://github.com/KARENLABO/countri-finder/assets/56927449/f2848553-2f49-4b6d-90dc-86f3ebf92f22)
-
-![Captura de pantalla 2023-07-26 a la(s) 20 37 39](https://github.com/KARENLABO/countri-finder/assets/56927449/21afd23e-b0ea-4036-ad4b-c19fdbad7966)
-
-![Captura de pantalla 2023-07-26 a la(s) 20 37 57](https://github.com/KARENLABO/countri-finder/assets/56927449/c9280be5-fd3d-4b51-9209-14a0954d5b91)
-
+- html: Use of appropriate html elements and behaviors.
+- css: Layout of elements and information being easy to understand. We will not judge the design aesthetics.
+  **You must write your own css classes**
+- js: Familiarity with ReactJS and ability to use REST Apis and handling real world conditions (errors, slow responses etc).
