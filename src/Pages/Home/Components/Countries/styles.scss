@@ -3,15 +3,28 @@
 .countries-body{
   background: $white;
   border-radius: $border-radius-regular;
-  width: 90%;
+  width: 80vw;
+  height: auto;
   padding: 2.5rem;
 
-  .countries-container{
-    max-width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content:space-evenly;
+  .loading-text{
+    font-weight: $font-weight-semibold;
   }
+
+  .body-container{
+    
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .countries-container{
+      max-width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content:space-evenly;
+    }
+  }
+
 }
