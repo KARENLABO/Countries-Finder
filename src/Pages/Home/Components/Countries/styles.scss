@@ -1,0 +1,17 @@
+@use '/src/variables' as *;
+
+.countries-body{
+  background: $white;
+  border-radius: $border-radius-regular;
+  width: 90%;
+  padding: 2.5rem;
+
+  .countries-container{
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content:space-evenly;
+  }
+}
