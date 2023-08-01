@@ -5,7 +5,7 @@ import { func } from 'prop-types';
 import { fetchDataByName } from '../../../../Api';
 import './styles.scss';
 
-function Finder({ setInfo }) {
+function Finder({ setInfo, setLoading, setBack }) {
   const [options, setOptions] = useState([]);
 
   const searchResult = async (value, clicked) => {
@@ -32,8 +32,11 @@ function Finder({ setInfo }) {
   };
 
   const onSelect = async (value) => {
+    setLoading(true);
     const { results } = await fetchDataByName(value);
     setInfo(results);
+    setLoading(false);
+    setBack(true);
   };
 
   return (
@@ -47,7 +50,7 @@ function Finder({ setInfo }) {
       >
         <Input.Search
           size="large"
-          placeholder="Type something to search"
+          placeholder="What country do you want to visit today?"
           enterButton
         />
       </AutoComplete>
@@ -55,6 +58,8 @@ function Finder({ setInfo }) {
   );
 }
 Finder.propTypes = {
+  setLoading: func.isRequired,
+  setBack: func.isRequired,
   setInfo: func.isRequired,
 };
 

@@ -1,16 +1,32 @@
 import React from 'react';
 
-import { Pagination, Spin } from 'antd';
+import { Pagination, Spin, Button } from 'antd';
 import { shape, arrayOf, string, bool, func, number } from 'prop-types';
-
+import backIcon from '../../../../Assets/Svg/backIcon';
 import Card from '../../../../Assets/Components/Card';
 import './styles.scss';
 
-function Countries({ info, loading, currentPage, bringData }) {
+function Countries({ info, loading, currentPage, bringData, back }) {
   return (
     <div className="countries-body">
-      {info && !loading ? (
+      {info && !loading && (
         <div className="body-container">
+          {back && (
+            <Button
+              type="primary"
+              loading={loading}
+              ghost
+              onClick={() => {
+                bringData(1);
+              }}
+              className="back-button"
+            >
+              <div>
+                <img className="back-icon" src={backIcon} alt="back-icon" />
+              </div>
+              Go back
+            </Button>
+          )}
           <div className="countries-container">
             {info?.map((country) => (
               <Card
@@ -32,7 +48,9 @@ function Countries({ info, loading, currentPage, bringData }) {
             />
           )}
         </div>
-      ) : (
+      )}
+
+      {loading && (
         <div>
           <Spin size="large" />
           <p className="loading-text">Loading...</p>
@@ -43,6 +61,7 @@ function Countries({ info, loading, currentPage, bringData }) {
 }
 
 Countries.propTypes = {
+  back: bool,
   info: arrayOf(
     shape({
       name: string.isRequired,
@@ -56,6 +75,7 @@ Countries.propTypes = {
 };
 
 Countries.defaultProps = {
+  back: false,
   info: {
     capital: '',
   },

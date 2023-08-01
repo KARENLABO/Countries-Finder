@@ -7,6 +7,24 @@
   height: auto;
   padding: 2.5rem;
 
+  .back-button{
+    width: 120px;
+    display: grid;
+    grid-template-columns: .2fr auto;
+    justify-content: start;
+    gap: 5px;
+    font-weight: 500;
+
+    .back-icon{
+      width: 20px;
+    }
+  }
+
+  .back-button:hover{
+    font-weight: $font-weight-regular;
+  }
+
+
   .loading-text{
     font-weight: $font-weight-semibold;
   }
