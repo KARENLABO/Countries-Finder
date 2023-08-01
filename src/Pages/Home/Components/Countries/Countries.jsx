@@ -1,36 +1,42 @@
 import React, { useEffect, useState } from 'react';
 
 import { Pagination, Spin } from 'antd';
-import axios from 'axios';
+import Finder from '../Finder';
 
+import { fetchDataByPage } from '../../../../Api';
 import Card from '../../../../Assets/Components/Card';
 import './styles.scss';
 
 function Countries() {
   const [info, setInfo] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const fetchData = async () => {
+  const bringData = async (page) => {
+    setCurrentPage(page);
     setLoading(true);
-    try {
-      const { data } = await axios.get('http://localhost:5173/countries');
-      setInfo(data.results);
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-      setInfo(null);
-    }
+    const { results } = await fetchDataByPage(page);
+    setInfo(results);
+    setLoading(false);
   };
 
   useEffect(() => {
-    fetchData();
+    bringData(1);
   }, []);
 
   return (
     <div className="countries-body">
+      <Finder info={info} setInfo={setInfo} />
       {info && !loading ? (
         <div className="body-container">
-          <Pagination defaultCurrent={1} total={50} />
+          <Pagination
+            current={currentPage}
+            defaultCurrent={1}
+            total={270}
+            pageSize={10}
+            onChange={bringData}
+            showSizeChanger={false}
+          />
           <div className="countries-container">
             {info.map((country) => (
               <Card
@@ -41,7 +47,16 @@ function Countries() {
               />
             ))}
           </div>
-          <Pagination defaultCurrent={1} total={50} />
+          {info?.length > 8 && (
+            <Pagination
+              current={currentPage}
+              defaultCurrent={1}
+              total={270}
+              pageSize={10}
+              onChange={bringData}
+              showSizeChanger={false}
+            />
+          )}
         </div>
       ) : (
         <div>
