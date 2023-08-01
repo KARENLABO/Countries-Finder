@@ -40,12 +40,10 @@ function Finder({ setInfo }) {
     <div className="finder-container">
       <AutoComplete
         popupMatchSelectWidth={252}
-        style={{
-          width: 500,
-        }}
         options={options}
         onSelect={onSelect}
         onSearch={handleSearch}
+        className="finder-autocomplete"
       >
         <Input.Search
           size="large"

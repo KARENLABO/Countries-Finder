@@ -2,11 +2,18 @@
 @use '/src/variables' as *;
 
 .principal-container{
-    border-radius: $border-radius-regular;
-    background: $gray-background;
-    max-width: 100vw;
-    min-height: 94vh;
-    max-height: auto;
-    margin: 1.5rem 1rem ;
-    font-family: $font-family;
+  border-radius: $border-radius-regular;
+  background: $gray-background;
+  max-width: 100vw;
+  min-height: 94vh;
+  max-height: auto;
+  margin: 1.5rem 1rem ;
+  font-family: $font-family;
+}
+
+@media only screen and (max-width: $screen-sm) {
+  .principal-container{
+    max-width: 100%;
+    margin: 0;
+  }
 }
