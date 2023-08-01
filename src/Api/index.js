@@ -7,7 +7,7 @@ export const fetchDataByName = async (value) => {
     );
     return data;
   } catch (err) {
-    return err;
+    return { error: { err } };
   }
 };
 
@@ -18,6 +18,6 @@ export const fetchDataByPage = async (page) => {
     );
     return data;
   } catch (err) {
-    return err;
+    return { error: { err } };
   }
 };

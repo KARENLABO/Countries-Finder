@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Pagination, Spin, Button } from 'antd';
 import { shape, arrayOf, string, bool, func, number } from 'prop-types';
-import backIcon from '../../../../Assets/Svg/backIcon';
-import Card from '../../../../Assets/Components/Card';
+import { Back as backIcon } from '../../../../Assets/Svg';
+import { Card } from '../../../../Assets/Components';
 import './styles.scss';
 
 function Countries({ info, loading, currentPage, bringData, back }) {

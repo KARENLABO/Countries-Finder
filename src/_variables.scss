@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;700&display=swap');
 
 @mixin non-margins-and-paddings {
   margin: 0;
@@ -12,6 +12,7 @@ $gray-input: #e4e4e4;
 $gray-disable: #ceced0;
 $gray-divider: #c4c4c4;
 $gray-helper: #a5a8a8;
+$dark-gray: #343437;
 $black: #020d12;
 
 // --- FONT STYLES ---
@@ -25,6 +26,7 @@ $font-size-small: 12px;
 $font-size-body: 14px;
 $font-size-subtitle: 18px;
 $font-size-title: 24px;
+$font-size-extra: 35px;
 
 //FONT WEIGHT
 $font-weight-regular: 400;

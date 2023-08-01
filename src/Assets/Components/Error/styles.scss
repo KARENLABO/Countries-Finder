@@ -1,0 +1,47 @@
+@use '/src/variables' as *;
+
+.error-container{
+  width: 60%;
+  height: 70vh;
+  background: $white;
+  border-radius: $border-radius-large;
+  padding: 1rem;
+
+  display: grid;
+  grid-template-rows: 1fr 1.5fr 1fr;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+
+  h2{
+    @include non-margins-and-paddings;
+    align-self: center;
+    color: $dark-gray;
+    font-weight: $font-weight-semibold;
+  }
+
+  .wrong-icon-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .wrong-icon{
+      width: 120px;
+    }
+  }
+
+  .restart-button{
+    width: 70px;
+    height: 70px;
+    justify-self: center;
+    align-self: start;
+    border: none;
+
+    .restart-icon:hover{
+      width: 45px;
+      height: 45px;
+    }
+  }
+}
+
+
