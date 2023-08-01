@@ -34,11 +34,11 @@ function Home() {
   }, []);
 
   return (
-    <div className="home-container">
+    <div>
       {isError ? (
         <ErrorHandler bringData={bringData} />
       ) : (
-        <div>
+        <div className="home-container">
           <div className="top">
             <img src={Logo} alt="company-logo" className="logo" />
             <Finder
