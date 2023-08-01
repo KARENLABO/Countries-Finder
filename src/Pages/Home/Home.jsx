@@ -10,6 +10,7 @@ function Home() {
   const [info, setInfo] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [back, setBack] = useState(false);
 
   const bringData = async (page) => {
     setCurrentPage(page);
@@ -17,6 +18,7 @@ function Home() {
     const { results } = await fetchDataByPage(page);
     setInfo(results);
     setLoading(false);
+    setBack(false);
   };
 
   useEffect(() => {
@@ -27,7 +29,12 @@ function Home() {
     <div className="home-container">
       <div className="top">
         <img src={Logo} alt="company-logo" className="logo" />
-        <Finder info={info} setInfo={setInfo} />
+        <Finder
+          info={info}
+          setInfo={setInfo}
+          setLoading={setLoading}
+          setBack={setBack}
+        />
       </div>
       <div className="body">
         <Countries
@@ -36,6 +43,7 @@ function Home() {
           setInfo={setInfo}
           currentPage={currentPage}
           bringData={bringData}
+          back={back}
         />
       </div>
     </div>
