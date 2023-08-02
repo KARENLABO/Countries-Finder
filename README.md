@@ -35,13 +35,20 @@ The Countries Finder is created to be easily accessible from any device, enablin
 
 To set up the application locally, follow these steps:
 
-1. Run `npm install` to install all dependencies.
-2. Execute `npm start` to start your local environment.
+1. Run **npm install** to install all dependencies.
+2. Execute **npm start** to start your local environment.
 
 Once the local development server is up and running, you can start using the Countries Finder at:
 
 [http://localhost:5173/](http://localhost:5173/)
 
-We hope you enjoy using the Countries Finder as much as we enjoyed building it. Happy exploring!
+We hope you enjoy using the **Countries Finder** as much as I enjoyed building it. Happy exploring!
 
-If you have any questions, feedback, or issues, please don't hesitate to reach out to us. We're here to make your experience with the Countries Finder as smooth and informative as possible.
+## Contact Information:
+
+If you have any questions, feedback, or issues, please don't hesitate to reach out to me:
+
+- **Email:** karenramirez9428@hotmail.com
+- **LinkedIn:** [https://www.linkedin.com/in/akarenramirez/](https://www.linkedin.com/in/akarenramirez/)
+
+I'm here to make your experience with the Countries Finder as smooth and informative as possible. Feel free to contact me anytime!
