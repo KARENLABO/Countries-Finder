@@ -66,6 +66,7 @@ function Finder({ setInfo, setLoading, setBack, setIsError }) {
           size="large"
           placeholder="What country do you want to visit today?"
           enterButton
+          onSearch={onSelect}
         />
       </AutoComplete>
     </div>
