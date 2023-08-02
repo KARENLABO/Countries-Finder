@@ -11,8 +11,11 @@ function Home() {
   const [info, setInfo] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
+
   const [back, setBack] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+  const [options, setOptions] = useState([]);
 
   const bringData = async (page) => {
     setCurrentPage(page);
@@ -50,7 +53,10 @@ function Home() {
               setLoading={setLoading}
               setBack={setBack}
               setIsError={setIsError}
-              loading={loading}
+              inputValue={inputValue}
+              setInputValue={setInputValue}
+              options={options}
+              setOptions={setOptions}
             />
           </div>
           <div className="body">
@@ -61,6 +67,8 @@ function Home() {
               currentPage={currentPage}
               bringData={bringData}
               back={back}
+              setInputValue={setInputValue}
+              setOptions={setOptions}
             />
           </div>
         </div>

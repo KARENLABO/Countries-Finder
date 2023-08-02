@@ -6,7 +6,15 @@ import { Back as backIcon } from '../../../../Assets/Svg';
 import { Card } from '../../../../Assets/Components';
 import './styles.scss';
 
-function Countries({ info, loading, currentPage, bringData, back }) {
+function Countries({
+  info,
+  loading,
+  currentPage,
+  bringData,
+  back,
+  setInputValue,
+  setOptions,
+}) {
   return (
     <div className="countries-body">
       {/* when no match is found */}
@@ -26,6 +34,8 @@ function Countries({ info, loading, currentPage, bringData, back }) {
               ghost
               onClick={() => {
                 bringData(1);
+                setInputValue('');
+                setOptions([]);
               }}
               className="back-button"
             >
@@ -45,20 +55,21 @@ function Countries({ info, loading, currentPage, bringData, back }) {
               />
             ))}
           </div>
-
-          <Pagination
-            current={currentPage}
-            defaultCurrent={1}
-            total={270}
-            pageSize={10}
-            onChange={bringData}
-            showSizeChanger={false}
-          />
+          {!back && (
+            <Pagination
+              current={currentPage}
+              defaultCurrent={1}
+              total={270}
+              pageSize={10}
+              onChange={bringData}
+              showSizeChanger={false}
+            />
+          )}
         </div>
       )}
       {/* when is loading */}
       {loading && (
-        <div>
+        <div className="loading-container">
           <Spin size="large" tip="Loading...">
             <div className="content" />
           </Spin>
@@ -80,6 +91,8 @@ Countries.propTypes = {
   loading: bool.isRequired,
   currentPage: number.isRequired,
   bringData: func.isRequired,
+  setInputValue: func.isRequired,
+  setOptions: func.isRequired,
 };
 
 Countries.defaultProps = {

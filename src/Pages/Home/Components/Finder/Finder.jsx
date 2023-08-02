@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import { AutoComplete, Input } from 'antd';
-import { func, bool } from 'prop-types';
+import { func, string, arrayOf, shape } from 'prop-types';
 
 import { fetchDataByName } from '../../../../Api';
 import './styles.scss';
 
-function Finder({ setInfo, setLoading, setBack, setIsError, loading }) {
-  const [options, setOptions] = useState([]);
-  const [inputValue, setInputValue] = useState([]);
+function Finder({
+  setInfo,
+  setLoading,
+  setBack,
+  setIsError,
+  setInputValue,
+  inputValue,
+  options,
+  setOptions,
+}) {
+  const [inputloading, setInputLoading] = useState(false);
 
   const searchResult = async (value, clicked) => {
     const { results } = await fetchDataByName(value);
@@ -28,25 +36,25 @@ function Finder({ setInfo, setLoading, setBack, setIsError, loading }) {
   };
 
   const handleSearch = async (value) => {
+    setInputLoading(true);
     setInputValue(value);
     const res = await searchResult(value);
     setOptions(value ? res : []);
+    setInputLoading(false);
   };
 
   const onSelect = async (value) => {
+    if (!value) return;
     setLoading(true);
     const { results, error } = await fetchDataByName(value);
     if (error && !results) {
       setIsError(true);
       setBack(false);
-      setInputValue('');
-      setOptions([]);
       setLoading(false);
+      setInputValue('');
     } else {
       setIsError(false);
       setInfo(results);
-      setInputValue('');
-      setOptions([]);
       setBack(true);
       setLoading(false);
     }
@@ -67,7 +75,7 @@ function Finder({ setInfo, setLoading, setBack, setIsError, loading }) {
           placeholder="Which country would you like to know?"
           enterButton
           onSearch={onSelect}
-          loading={loading}
+          loading={inputloading}
         />
       </AutoComplete>
     </div>
@@ -78,7 +86,14 @@ Finder.propTypes = {
   setBack: func.isRequired,
   setInfo: func.isRequired,
   setIsError: func.isRequired,
-  loading: bool.isRequired,
+  setInputValue: func.isRequired,
+  inputValue: string,
+  options: arrayOf(shape({})).isRequired,
+  setOptions: func.isRequired,
+};
+
+Finder.defaultProps = {
+  inputValue: 'false',
 };
 
 export default Finder;
