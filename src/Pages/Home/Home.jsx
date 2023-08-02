@@ -50,6 +50,7 @@ function Home() {
               setLoading={setLoading}
               setBack={setBack}
               setIsError={setIsError}
+              loading={loading}
             />
           </div>
           <div className="body">

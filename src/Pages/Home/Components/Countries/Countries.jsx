@@ -37,16 +37,15 @@ function Countries({ info, loading, currentPage, bringData, back }) {
               />
             ))}
           </div>
-          {info?.length > 8 && (
-            <Pagination
-              current={currentPage}
-              defaultCurrent={1}
-              total={270}
-              pageSize={10}
-              onChange={bringData}
-              showSizeChanger={false}
-            />
-          )}
+
+          <Pagination
+            current={currentPage}
+            defaultCurrent={1}
+            total={270}
+            pageSize={10}
+            onChange={bringData}
+            showSizeChanger={false}
+          />
         </div>
       )}
 

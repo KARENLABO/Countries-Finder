@@ -32,20 +32,29 @@
     gap: 1.5rem;
 
     .countries-container{
-      max-width: 100%;
+       max-width: 100%;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       gap: 1.5rem;
       justify-content:space-evenly;
+
     }
   }
-
 }
 
 
 @media only screen and (max-width: $screen-sm) {
   .countries-body{
     width: 60vw;
+  }
+}
+
+@media only screen and (min-width: $screen-xl) {
+  .countries-container{
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    flex-wrap: nowrap;
   }
 }

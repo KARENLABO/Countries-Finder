@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { AutoComplete, Input } from 'antd';
-import { func } from 'prop-types';
+import { func, bool } from 'prop-types';
 
 import { fetchDataByName } from '../../../../Api';
 import './styles.scss';
 
-function Finder({ setInfo, setLoading, setBack, setIsError }) {
+function Finder({ setInfo, setLoading, setBack, setIsError, loading }) {
   const [options, setOptions] = useState([]);
   const [inputValue, setInputValue] = useState([]);
 
@@ -64,9 +64,10 @@ function Finder({ setInfo, setLoading, setBack, setIsError }) {
       >
         <Input.Search
           size="large"
-          placeholder="What country do you want to visit today?"
+          placeholder="Which country would you like to know?"
           enterButton
           onSearch={onSelect}
+          loading={loading}
         />
       </AutoComplete>
     </div>
@@ -77,6 +78,7 @@ Finder.propTypes = {
   setBack: func.isRequired,
   setInfo: func.isRequired,
   setIsError: func.isRequired,
+  loading: bool.isRequired,
 };
 
 export default Finder;
