@@ -15,7 +15,6 @@ function Error({ bringData }) {
       <div>
         <h2>Something went wrong </h2>
         <h2> Please try again</h2>
-        <h2>:)</h2>
       </div>
 
       <Button

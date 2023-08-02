@@ -52,8 +52,9 @@ function Countries({ info, loading, currentPage, bringData, back }) {
 
       {loading && (
         <div>
-          <Spin size="large" />
-          <p className="loading-text">Loading...</p>
+          <Spin size="large" tip="Loading...">
+            <div className="content" />
+          </Spin>
         </div>
       )}
     </div>

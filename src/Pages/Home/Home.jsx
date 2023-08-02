@@ -23,6 +23,7 @@ function Home() {
       setLoading(false);
       setBack(false);
     } else {
+      setIsError(false);
       setInfo(results);
       setLoading(false);
       setBack(false);
@@ -36,7 +37,9 @@ function Home() {
   return (
     <div>
       {isError ? (
-        <ErrorHandler bringData={bringData} />
+        <div className="home-container">
+          <ErrorHandler bringData={bringData} />
+        </div>
       ) : (
         <div className="home-container">
           <div className="top">
