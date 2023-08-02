@@ -5,8 +5,9 @@ import { func } from 'prop-types';
 import { fetchDataByName } from '../../../../Api';
 import './styles.scss';
 
-function Finder({ setInfo, setLoading, setBack }) {
+function Finder({ setInfo, setLoading, setBack, setIsError }) {
   const [options, setOptions] = useState([]);
+  const [inputValue, setInputValue] = useState([]);
 
   const searchResult = async (value, clicked) => {
     const { results } = await fetchDataByName(value);
@@ -27,16 +28,28 @@ function Finder({ setInfo, setLoading, setBack }) {
   };
 
   const handleSearch = async (value) => {
+    setInputValue(value);
     const res = await searchResult(value);
     setOptions(value ? res : []);
   };
 
   const onSelect = async (value) => {
     setLoading(true);
-    const { results } = await fetchDataByName(value);
-    setInfo(results);
-    setLoading(false);
-    setBack(true);
+    const { results, error } = await fetchDataByName(value);
+    if (error && !results) {
+      setIsError(true);
+      setBack(false);
+      setInputValue('');
+      setOptions([]);
+      setLoading(false);
+    } else {
+      setIsError(false);
+      setInfo(results);
+      setInputValue('');
+      setOptions([]);
+      setBack(true);
+      setLoading(false);
+    }
   };
 
   return (
@@ -47,6 +60,7 @@ function Finder({ setInfo, setLoading, setBack }) {
         onSelect={onSelect}
         onSearch={handleSearch}
         className="finder-autocomplete"
+        value={inputValue}
       >
         <Input.Search
           size="large"
@@ -61,6 +75,7 @@ Finder.propTypes = {
   setLoading: func.isRequired,
   setBack: func.isRequired,
   setInfo: func.isRequired,
+  setIsError: func.isRequired,
 };
 
 export default Finder;

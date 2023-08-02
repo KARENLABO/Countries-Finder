@@ -49,6 +49,7 @@ function Home() {
               setInfo={setInfo}
               setLoading={setLoading}
               setBack={setBack}
+              setIsError={setIsError}
             />
           </div>
           <div className="body">
