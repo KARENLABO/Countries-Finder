@@ -1,75 +1,47 @@
-# B2B frontend take home assignment
+# Countries Finder
 
-This is a take home assignment to show your frontend skills, the api provided simulates real-world conditions, please code accordingly.
+The Countries Finder is a powerful online tool that allows users to explore and discover detailed information about countries around the world. Whether you're planning a trip, researching different cultures, or simply interested in learning about different nations, this search engine is your ultimate companion.
 
-## Deliverable
+## Key Features:
 
-We want you to create a country listing page with a search box that will filter the list.
-- Search input box and button to trigger search
-- List of countries based on the search input
-  - Each country should show it's name, capital and their flag
-  - Pagination of results
-- Page contents should be in a horizontally centered container
+- **Quick Search:** Easily find a specific country by entering its name or part of the name in the search box. The search engine provides real-time results, making the process efficient and user-friendly.
 
-The styling is up to you, please use your judgement.
-Please use your own css classes, but you are allowed to use a minimal prebuilt sheet like [normalize.css](https://necolas.github.io/normalize.css/).
+- **Detailed Information:** Gain access to accurate and comprehensive data about each country, including its capital, and potentially more information in the future. This enables users to have a deeper understanding of the countries they are interested in.
 
-## Guidelines
+- **Numeric Pagination:** The paginated country list features numeric links at the bottom, enhancing navigation between different pages. This functionality allows users to jump directly to a specific page, making it convenient to browse through a large number of countries.
 
-**Please spend max 4 hours in this assesment**
+- **Accessibility:** The Country Finder is thoughtfully designed to be accessible from both mobile devices and desktop computers. This optimization ensures a seamless and enjoyable user experience across different platforms.
 
-Prerequisites:
-  - [NodeJS](https://nodejs.org/)
+The Countries Finder is created to be easily accessible from any device, enabling users to explore and learn about different countries on the go. Embark on an exciting journey of global knowledge with our Countries Finder!
 
-This template provided has everything you need to get started.
-- `npm install` should install all dependencies
-- `npm start` should start your local environment
+![Screenshot](https://github.com/KARENLABO/Countries-Finder/assets/56927449/ef3dbabe-bba0-4905-bb84-e82ae28bd18d)
 
-Your react code starting point is `src/App.jsx`
+## Interested in the Development Process?
 
-### `/countries` endpoint
-The API endpoint for querying countries is available at `http://localhost:5173//countries`.
-It supports the following query search parameters:
-  - `query`: optional, default value: `""`, to filter the countries
-  - `page`: optional, default value: `1`, this helps to select the desired page
-  - `page_size`: optional, default value: `10`, set the max amount of countries
-#### Example
-```
-GET /countries?query=us&page_size=2 HTTP/1.1
-Host: localhost:5173
-```
-Response
-```json
-{
-    "page": 1,
-    "page_size": "2",
-    "results": [
-        {
-            "capital": "Canberra",
-            "code": "au",
-            "continent": "Oceania",
-            "flag_1x1": "flags/1x1/au.svg",
-            "flag_4x3": "flags/4x3/au.svg",
-            "iso": true,
-            "name": "Australia"
-        },
-        {
-            "capital": "Vienna",
-            "code": "at",
-            "continent": "Europe",
-            "flag_1x1": "flags/1x1/at.svg",
-            "flag_4x3": "flags/4x3/at.svg",
-            "iso": true,
-            "name": "Austria"
-        }
-    ],
-    "total": 8
-}
-```
+**Figma Designs:**
+- Check out the initial Figma designs [here](https://www.figma.com/file/PIZDK8SEwAPSCtstFVDCDL/BeCommerce?type=design&node-id=0%3A1&mode=design&t=J6km37PojWyk3xiz-1).
 
-## Evaluation criteria
+**Tech Stack:**
+- React.js
+- Saas
+- Axios
+- Vite
 
-- html: Use of appropriate html elements and behaviors.
-- css: Layout of elements and information being easy to understand. We will not judge the design aesthetics.
-  **You must write your own css classes**
-- js: Familiarity with ReactJS and ability to use REST Apis and handling real world conditions (errors, slow responses etc).
+**Libraries Used:**
+- ICONSVG - [https://iconsvg.xyz/](https://iconsvg.xyz/)
+- Ant Design - [https://ant.design/](https://ant.design/)
+
+**Getting Started:**
+
+To set up the application locally, follow these steps:
+
+1. Run `npm install` to install all dependencies.
+2. Execute `npm start` to start your local environment.
+
+Once the local development server is up and running, you can start using the Countries Finder at:
+
+[http://localhost:5173/](http://localhost:5173/)
+
+We hope you enjoy using the Countries Finder as much as we enjoyed building it. Happy exploring!
+
+If you have any questions, feedback, or issues, please don't hesitate to reach out to us. We're here to make your experience with the Countries Finder as smooth and informative as possible.
