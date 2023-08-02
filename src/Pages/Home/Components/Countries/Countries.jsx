@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Pagination, Spin, Button } from 'antd';
+import { Pagination, Spin, Button, Empty } from 'antd';
 import { shape, arrayOf, string, bool, func, number } from 'prop-types';
 import { Back as backIcon } from '../../../../Assets/Svg';
 import { Card } from '../../../../Assets/Components';
@@ -9,7 +9,15 @@ import './styles.scss';
 function Countries({ info, loading, currentPage, bringData, back }) {
   return (
     <div className="countries-body">
-      {info && !loading && (
+      {/* when no match is found */}
+      {info?.length < 1 && !loading && (
+        <div>
+          <Empty />
+        </div>
+      )}
+
+      {/* finds a match and is not loading */}
+      {info?.length > 0 && !loading && (
         <div className="body-container">
           {back && (
             <Button
@@ -48,7 +56,7 @@ function Countries({ info, loading, currentPage, bringData, back }) {
           />
         </div>
       )}
-
+      {/* when is loading */}
       {loading && (
         <div>
           <Spin size="large" tip="Loading...">
