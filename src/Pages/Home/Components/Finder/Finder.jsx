@@ -88,12 +88,13 @@ Finder.propTypes = {
   setIsError: func.isRequired,
   setInputValue: func.isRequired,
   inputValue: string,
-  options: arrayOf(shape({})).isRequired,
+  options: arrayOf(shape({})),
   setOptions: func.isRequired,
 };
 
 Finder.defaultProps = {
   inputValue: 'false',
+  options: [],
 };
 
 export default Finder;
